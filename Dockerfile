@@ -1,10 +1,13 @@
 FROM python:3.9-alpine3.13
 LABEL maintainer="ceewa30"
 
-ENV PYTHONBUFFERED 1
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+# ENV PYTHONBUFFERED 1
 
 COPY ./requirements.txt /tmp/requirements.txt
-COPY ./requirements.dev.txt /tmp/requirements.dev.txt
+# COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 COPY ./app /app
 WORKDIR /app
 EXPOSE 8000
@@ -12,13 +15,14 @@ EXPOSE 8000
 ARG DEV=false
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
+    # apk add --update --no-cache libpq-dev gcc && \
     apk add --update --no-cache postgresql-client && \
     apk add --update --no-cache --virtual .tmp-build-deps \
-        build-base postgresql-dev musl-dev && \
+        build-base gcc libc-dev linux-headers postgresql-dev && \
     /py/bin/pip install -r /tmp/requirements.txt && \
-    if [ $DEV = "true" ]; \
-        then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
-    fi && \
+    # if [ $DEV = "true" ]; \
+    #     then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
+    # fi && \
     rm -rf /tmp && \
     apk del .tmp-build-deps && \
     adduser \
