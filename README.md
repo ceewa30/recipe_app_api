@@ -26,3 +26,7 @@ DATABASES = {
         'PASSWORD': os.environ.get('DB_PASS'),
     }
 }
+
+
+# Auto generate docs (with third party library)
+    * drf-spectacular
