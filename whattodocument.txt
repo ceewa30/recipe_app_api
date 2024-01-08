@@ -1,0 +1,13 @@
+What to Document?
+
+* Everything needed to use the API
+* Available endpoints (paths)
+    # /api/recipes
+* Supported methods
+    # GET, POST, PUT, PATCH, DELETE
+* Format of payloads (inputs)
+    # Parameters
+    # Post JSON Format
+* Format of responses (outputs)
+    # Response JSON Format
+* Authentication process
