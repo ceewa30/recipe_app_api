@@ -40,10 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-<<<<<<< HEAD
     'user',
-=======
->>>>>>> 57343373eb672affd99a8d710600c2602bd72816
+    'rest_framework',
     'rest_framework',
     'rest_framework.authtoken',
     'drf_spectacular',
