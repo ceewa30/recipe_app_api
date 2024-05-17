@@ -1,5 +1,5 @@
 """
-Views fir tge yser API.
+Views for the user API.
 """
 from rest_framework import generics, authentication, permissions
 from rest_framework.authtoken.views import ObtainAuthToken
