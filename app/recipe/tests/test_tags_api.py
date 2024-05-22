@@ -27,7 +27,7 @@ def create_user(email='user@example.com', password='testpass123'):
 
 
 class PublicTagsApiTests(TestCase):
-    """Test auauthenticated API requests."""
+    """Test anauthenticated API requests."""
 
     def setUp(self):
         self.client = APIClient()
